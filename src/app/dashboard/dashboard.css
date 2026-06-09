@@ -1,0 +1,221 @@
+.app-container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* En-tête */
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 25px 0 15px;
+  border-bottom: 2px solid #eee;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.sous-titre {
+  color: #7f8c8d;
+  margin-top: 5px;
+  font-size: 1.1rem;
+}
+
+/* Alertes */
+.alerte {
+  padding: 14px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.alerte.danger {
+  background-color: #fdecea;
+  color: #c0392b;
+  border: 1px solid #e74c3c;
+}
+
+.alerte.succes {
+  background-color: #eafaf1;
+  color: #1e8449;
+  border: 1px solid #27ae60;
+}
+
+/* Indicateurs */
+.indicateurs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.indicateur {
+  flex: 1;
+  min-width: 200px;
+  background: white;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.indicateur .label {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.indicateur .valeur {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.valeur.orange { color: #e67e22; }
+.valeur.bleu   { color: #2980b9; }
+.valeur.gris   { color: #2c3e50; }
+
+/* Formulaire */
+.formulaire {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formulaire h2 {
+  margin: 0 0 20px;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Journal */
+.journal {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.journal h2 {
+  margin: 0 0 20px;
+  color: #2c3e50;
+  font-size: 1.2rem;
+}
+
+.vide {
+  color: #aaa;
+  text-align: center;
+  padding: 30px 0;
+  font-style: italic;
+}
+
+.liste-activites {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.activite-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border-left: 4px solid;
+}
+
+.activite-item.sport {
+  background-color: #fff3e0;
+  border-left-color: #e67e22;
+}
+
+.activite-item.hydratation {
+  background-color: #e3f2fd;
+  border-left-color: #2196f3;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: white;
+  white-space: nowrap;
+}
+
+.activite-item.sport .badge {
+  background-color: #e67e22;
+}
+
+.activite-item.hydratation .badge {
+  background-color: #2196f3;
+}
+
+.activite-nom {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.activite-valeur {
+  font-weight: bold;
+  color: #555;
+  white-space: nowrap;
+}

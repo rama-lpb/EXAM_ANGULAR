@@ -1,0 +1,102 @@
+<div class="app-container">
+
+  <header class="header">
+    <h1>Fit Track Pro</h1>
+    <p class="sous-titre">Bilan Journalier</p>
+  </header>
+
+  <!-- Alertes santé -->
+  @if (objectifAtteint()) {
+    <div class="alerte succes">
+      Objectif Santé Atteint !
+    </div>
+  } @else if (alerteDeshydratation()) {
+    <div class="alerte danger">
+      &#9888; Attention ! Risque de déshydratation — Pensez à boire plus d'eau.
+    </div>
+  }
+
+  <!-- Indicateurs en temps réel -->
+  <section class="indicateurs">
+    <div class="indicateur">
+      <span class="label">Calories brûlées</span>
+      <span class="valeur orange">{{ totalCalories() }} kcal</span>
+    </div>
+    <div class="indicateur">
+      <span class="label">Eau consommée</span>
+      <span class="valeur bleu">{{ totalEau() }} ml</span>
+    </div>
+    <div class="indicateur">
+      <span class="label">Bilan restant (objectif 2000)</span>
+      <span class="valeur gris">{{ bilanRestant() }} kcal</span>
+    </div>
+  </section>
+
+  <!-- Formulaire d'ajout -->
+  <section class="formulaire">
+    <h2>Ajouter une activité</h2>
+
+    <div class="form-group">
+      <label for="nom">Nom de l'activité</label>
+      <input
+        id="nom"
+        type="text"
+        [(ngModel)]="nomActivite"
+        placeholder="Ex : Course à pied, Verre d'eau..."
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select id="type" [(ngModel)]="typeActivite">
+        <option value="SPORT">SPORT</option>
+        <option value="HYDRATATION">HYDRATATION</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="valeur">
+        @if (typeActivite === 'SPORT') {
+          Calories brûlées (kcal)
+        } @else {
+          Volume d'eau (ml)
+        }
+      </label>
+      <input
+        id="valeur"
+        type="number"
+        [(ngModel)]="valeurActivite"
+        placeholder="0"
+        min="1"
+      />
+    </div>
+
+    <button (click)="ajouterActivite()">+ Ajouter</button>
+  </section>
+
+  <!-- Journal des activités -->
+  <section class="journal">
+    <h2>Journal du jour</h2>
+
+    @if (activites().length === 0) {
+      <p class="vide">Aucune activité enregistrée pour aujourd'hui.</p>
+    } @else {
+      <ul class="liste-activites">
+        @for (activite of activites(); track activite.id) {
+          <li class="activite-item" [class.sport]="activite.type === 'SPORT'" [class.hydratation]="activite.type === 'HYDRATATION'">
+            <span class="badge">{{ activite.type }}</span>
+            <span class="activite-nom">{{ activite.nom }}</span>
+            <span class="activite-valeur">
+              @if (activite.type === 'SPORT') {
+                {{ activite.valeur }} kcal
+              } @else {
+                {{ activite.valeur }} ml
+              }
+            </span>
+          </li>
+        }
+      </ul>
+    }
+  </section>
+
+</div>
