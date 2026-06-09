@@ -1,59 +1,43 @@
-# ExamAngular
+# Fit Track Pro — Bilan Journalier
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.9.
+**Auteur :** Ramatoulaye Gueye  
+**Niveau :** Licence 3 Informatique  
+**Module :** Développement Angular 21
 
-## Development server
+---
 
-To start a local development server, run:
+## Présentation
 
-```bash
-ng serve
-```
+Application de suivi quotidien des activités physiques et d'hydratation.  
+L'utilisateur peut enregistrer ses activités de la journée et suivre en temps réel ses indicateurs de santé.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Fonctionnalités
 
-## Code scaffolding
+- Ajout d'activités (SPORT ou HYDRATATION) via un formulaire
+- Affichage du journal chronologique avec distinction visuelle des types
+- Indicateurs recalculés automatiquement :
+  - Total des calories brûlées
+  - Total de l'eau consommée
+  - Bilan calorique restant (objectif : 2000 kcal)
+- Alertes de santé intelligentes :
+  - Avertissement de déshydratation tant que l'objectif santé n'est pas atteint
+  - Message de félicitations dès que l'eau ≥ 1500 ml ET les calories > 500
+- Persistance des données via `localStorage`
+- Bouton pour vider le journal et réinitialiser les données
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Technologies utilisées
 
-```bash
-ng generate component component-name
-```
+- Angular 21 (composants Standalone)
+- Signals API (`signal`, `computed`)
+- Control Flow Angular (`@if`, `@else`, `@for`)
+- FormsModule (`ngModel`)
+- LocalStorage pour la persistance
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Lancer le projet
 
 ```bash
-ng test
+npm install
+npm start
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+L'application sera disponible sur `http://localhost:4200`.

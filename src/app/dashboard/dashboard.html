@@ -10,7 +10,7 @@
     <div class="alerte succes">
       Objectif Santé Atteint !
     </div>
-  } @else if (alerteDeshydratation()) {
+  } @else {
     <div class="alerte danger">
       &#9888; Attention ! Risque de déshydratation — Pensez à boire plus d'eau.
     </div>
@@ -76,7 +76,12 @@
 
   <!-- Journal des activités -->
   <section class="journal">
-    <h2>Journal du jour</h2>
+    <div class="journal-header">
+      <h2>Journal du jour</h2>
+      @if (activites().length > 0) {
+        <button class="btn-vider" (click)="viderJournal()">Vider le journal</button>
+      }
+    </div>
 
     @if (activites().length === 0) {
       <p class="vide">Aucune activité enregistrée pour aujourd'hui.</p>

@@ -36,11 +36,12 @@ export class DashboardComponent implements OnInit {
 
   bilanRestant = computed(() => 2000 - this.totalCalories());
 
-  alerteDeshydratation = computed(() => this.totalEau() < 1500);
-
   objectifAtteint = computed(
     () => this.totalEau() >= 1500 && this.totalCalories() > 500
   );
+
+  // l'avertissement reste tant que les deux conditions ne sont pas réunies
+  alerteDeshydratation = computed(() => !this.objectifAtteint());
 
   ngOnInit() {
     const donneesSauvegardees = localStorage.getItem('fittrack_activites');
@@ -67,5 +68,10 @@ export class DashboardComponent implements OnInit {
     this.nomActivite = '';
     this.typeActivite = 'SPORT';
     this.valeurActivite = null;
+  }
+
+  viderJournal() {
+    this.activites.set([]);
+    localStorage.removeItem('fittrack_activites');
   }
 }
